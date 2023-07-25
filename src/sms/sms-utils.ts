@@ -7,14 +7,12 @@
  * E.164: https://www.twilio.com/docs/glossary/what-e164
  */
 export function stripE164(number: string): string {
-  if (number.startsWith('+86')) // china mainland
-    return number.slice(3)
+  if (number.startsWith('+'))
+    number = number.slice(1)
 
-  if (number.startsWith('86')) // china mainland
-    return number.slice(2)
-
-  if (number.startsWith('+')) // international/hk/mo/tw
-    return number.slice(1)
+  // China mainland number starts with '86' and '1', eg. '8613812345678'
+  if (number.length === 13 && number.startsWith('861'))
+    number = number.slice(2)
 
   return number
 }
