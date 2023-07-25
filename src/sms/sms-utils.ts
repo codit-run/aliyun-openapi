@@ -10,7 +10,7 @@ export function stripE164(number: string): string {
   if (number.startsWith('+'))
     number = number.slice(1)
 
-  // China mainland number starts with '86' and '1', eg. '8613812345678'
+  // China's mainland number starts with '86' and '1', eg. '8613812345678'
   if (number.length === 13 && number.startsWith('861'))
     number = number.slice(2)
 

@@ -63,7 +63,7 @@ export class AliyunSmsOpenAPI {
    *
    * @param number Phone number, E.164 is also valid.
    * @param signName Sign name.
-   * @param template Template code.
+   * @param templateCode Template code.
    * @param templateParams Template parameters.
    *
    * @throws {AliyunError}
@@ -71,17 +71,22 @@ export class AliyunSmsOpenAPI {
   async send(
     number: string | string[],
     signName: string,
-    template: string,
+    templateCode: string,
     templateParams: Record<string, string>,
+    options?: Partial<{
+      SmsUpExtendCode: string
+      OutId: string
+    }>
   ): Promise<AliyunSuccessResponse> {
     if (Array.isArray(number)) number = number.join(',')
     return await this.#client.send('SendSms', {
       PhoneNumbers: number,
       SignName: signName,
-      TemplateCode: template,
+      TemplateCode: templateCode,
       TemplateParam: JSON.stringify(templateParams),
       // SmsUpExtendCode
       // OutId
+      ...options,
     })
   }
 
@@ -114,6 +119,10 @@ export class AliyunSmsOpenAPI {
     signNames: string[],
     template: string,
     templateParams: Record<string, string>[],
+    options?: Partial<{
+      SmsUpExtendCodeJson: string
+      OutId: string
+    }>
   ): Promise<AliyunSuccessResponse> {
     return await this.#client.send('SendBatchSms', {
       PhoneNumberJson: JSON.stringify(numbers),
@@ -121,6 +130,8 @@ export class AliyunSmsOpenAPI {
       TemplateCode: template,
       TemplateParamJson: JSON.stringify(templateParams),
       // SmsUpExtendCodeJson
+      // OutId
+      ...options,
     })
   }
 
@@ -140,7 +151,7 @@ export class AliyunSmsOpenAPI {
    * }
    * ```
    *
-   * @param domestic true - domestic, false - international
+   * @param mainland true if China's mainland, false if international
    * @param start The date object or date string in form of 'yyyyMMdd', within recent 30 days
    * @param end Same as `start`
    * @param options The options including PageSize, PageIndex
@@ -148,20 +159,27 @@ export class AliyunSmsOpenAPI {
    * @throws {AliyunError}
    */
   async querySendStatistics(
-    domestic: boolean,
+    mainland: boolean,
     start: Date | string,
     end: Date | string,
-    options = { PageSize: 10, PageIndex: 1 },
+    options?: Partial<{
+      PageSize: number
+      PageIndex: number
+      TemplateType: 0 | 1 | 2 | 3 | 7
+      SignName: string
+    }>,
   ): Promise<AliyunSuccessResponse> {
     if (start instanceof Date) start = toCSTDateString(start)
     if (end instanceof Date) end = toCSTDateString(end)
     return await this.#client.send('QuerySendStatistics', {
-      IsGlobe: domestic ? 1 : 2,
+      IsGlobe: mainland ? 1 : 2,
       StartDate: start,
       EndDate: end,
+      PageSize: 10,
+      PageIndex: 1,
+      // TemplateType
+      // SignName
       ...options,
-      // PageIndex
-      // PageSize
     })
   }
 
@@ -192,14 +210,20 @@ export class AliyunSmsOpenAPI {
   async querySendDetails(
     number: string,
     date: Date | string,
-    options = { PageSize: 10, CurrentPage: 1 },
+    options?: Partial<{
+      BizId: string
+      PageSize: number
+      CurrentPage: number
+    }>,
   ): Promise<AliyunSuccessResponse> {
     if (date instanceof Date) date = toCSTDateString(date)
     return await this.#client.send('QuerySendDetails', {
       PhoneNumber: stripE164(number),
-      SendDate: date,
-      ...options,
       // BizId
+      SendDate: date,
+      PageSize: 10,
+      CurrentPage: 1,
+      ...options,
     })
   }
 }
