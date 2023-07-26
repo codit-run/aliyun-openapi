@@ -22,10 +22,6 @@ export class AliyunEmailOpenAPI {
     this.#client = client
   }
 
-  get client(): AliyunClient {
-    return this.#client
-  }
-
   /**
    * Sends a single email.
    *

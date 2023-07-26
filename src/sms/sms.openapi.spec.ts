@@ -50,9 +50,9 @@ describe('#send', () => {
 test('#sendBatch', async () => {
   const spy = vi.spyOn(client, 'send').mockResolvedValueOnce({
     Message: 'OK',
-    RequestId: 'AA6C5206-3550-5020-AEFF-D645B164306C',
+    RequestId: '638011E5-3A28-5884-855B-ADEA78198ECD',
     Code: 'OK',
-    BizId: '225023090127905426^0',
+    BizId: '624120549504895168^0',
   })
   const numbers = ['13811111111', '13822222222']
   const signNames = [signName, signName]
@@ -66,9 +66,9 @@ test('#sendBatch', async () => {
 
 test('#querySendDetails', async () => {
   const spy = vi.spyOn(client, 'send').mockResolvedValueOnce({
-    TotalCount: 0,
+    TotalCount: 3,
     Message: 'OK',
-    RequestId: '3ABB814E-C213-5213-99A2-3D5FE6453482',
+    RequestId: 'EB336232-6A4C-55B7-ACF7-D95F4432B5E4',
     Code: 'OK',
     SmsSendDetailDTOs: { SmsSendDetailDTO: [] },
   })
@@ -87,7 +87,7 @@ test('#querySendDetails', async () => {
 
 test('#querySendStatistics', async () => {
   const spy = vi.spyOn(client, 'send').mockResolvedValueOnce({
-    RequestId: 'D8DEE95A-C04A-569B-B93D-B301CD8799A3',
+    RequestId: '0C253EFB-1CFC-504E-8FE9-B5EC578B6C7A',
     Data: {
       TargetList: [[], [], [], []],
       TotalSize: 4,

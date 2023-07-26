@@ -24,6 +24,15 @@ $ npm install aliyun-openapi
 - SMS
 - Email
 
+## Easy mocking
+
+The package provides default mocking files, for example [`__mocks__/sms.openapi.ts`](https://github.com/koajs/ejs/tree/master/src/sms/__mocks__/sms.openapi.ts)
+
+You can mock them in your testing. If you are using `vitest`, for example:
+```ts
+vi.mock('aliyun-openapi/sms')
+vi.mock('aliyun-openapi/email')
+```
 
 ## TODO
 - Monorepo

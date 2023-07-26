@@ -10,8 +10,8 @@ const client = new AliyunClient({
 })
 
 const successData = {
-  RequestId: '312BDEBE-4E0C-5995-804E-BAAFF8395F62',
   Message: 'OK',
+  RequestId: '312BDEBE-4E0C-5995-804E-BAAFF8395F62',
   BizId: '628323749491270669^0',
   Code: 'OK',
 }
