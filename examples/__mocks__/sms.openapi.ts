@@ -1,12 +1,8 @@
 /**
- * The mock file provided for package use and external use. You can import it
- * for easy mocking. If you are using `vitest`, for example:
- * ```js
- * vi.mock('aliyun-openapi/sms')
- * ```
+ * An example mock file. You can copy it to your own mock implementations.
  */
 
-import type { AliyunSuccessResponse } from '../../core/types.js'
+import type { AliyunSuccessResponse } from '../../src/core/types.js'
 
 export class AliyunSmsOpenAPI {
   async send(): Promise<AliyunSuccessResponse> {

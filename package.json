@@ -2,7 +2,7 @@
   "name": "aliyun-openapi",
   "description": "Aliyun OpenAPI",
   "repository": "codit-run/aliyun-openapi",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "author": "xuxucode",
   "license": "MIT",
   "type": "module",
@@ -18,11 +18,7 @@
   "files": [
     "dist"
   ],
-  "exports": {
-    ".": "./dist/index.js",
-    "./email": "./dist/email/email.openapi.js",
-    "./sms": "./dist/sms/sms.openapi.js"
-  },
+  "exports": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
     "build": "rm -rf dist && tsc -p tsconfig.build.json",

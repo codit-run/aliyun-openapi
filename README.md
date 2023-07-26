@@ -24,14 +24,38 @@ $ npm install aliyun-openapi
 - SMS
 - Email
 
-## Easy mocking
+## Usage
 
-The package provides default mocking files, for example [`__mocks__/sms.openapi.ts`](https://github.com/codit-run/aliyun-openapi/tree/master/src/sms/__mocks__/sms.openapi.ts)
+### SMS
 
-You can mock them in your testing. If you are using `vitest`, for example:
 ```ts
-vi.mock('aliyun-openapi/sms')
-vi.mock('aliyun-openapi/email')
+import { AliyunClient, AliyunSmsOpenAPI } from 'aliyun-openapi'
+
+const client = new AliyunClient({
+  accessKeyId: 'your_access_key_id',
+  accessKeySecret: 'your_access_key_secret',
+  version: '2017-05-25',
+  endpoint: 'dysmsapi.aliyuncs.com',
+})
+const openapi = new AliyunSmsOpenAPI(client)
+
+await openapi.send('13812345678', 'TestSigner', 'SMS_12345678', { code: '123456' })
+```
+
+### Email
+
+```ts
+import { AliyunClient, AliyunEmailOpenAPI } from 'aliyun-openapi'
+
+const client = new AliyunClient({
+  accessKeyId: 'your_access_key_id',
+  accessKeySecret: 'your_access_key_secret',
+  version: '2015-11-23',
+  endpoint: 'dm.aliyuncs.com',
+})
+const openapi = new AliyunEmailOpenAPI(client)
+
+await openapi.send('noreply@test.com', 'alice@test.com', 'Verification Code', `<h2>Verification code: 123456<h2>`)
 ```
 
 ## TODO
