@@ -3,7 +3,7 @@
  *
  * Put fetching in a module to allow for spying & mocking.
  *
- * Success response with status 2xx and payload:
+ * Success response with status 2xx:
  * ```js
  * // 200
  * {
@@ -12,7 +12,7 @@
  * }
  * ```
  *
- * Error response with status 4xx/5xx and payload:
+ * Error response with status 4xx/5xx:
  * ```js
  * // 404
  * {

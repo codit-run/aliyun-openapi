@@ -38,6 +38,9 @@ export class AliyunClient {
   /**
    * Sends request.
    *
+   * Note: A success response only indicates the message is successfully proceed
+   * by Aliyun SMS, it does not mean the message has been delivered or received.
+   *
    * @param action The action name.
    * @param options The action specific parameters.
    *

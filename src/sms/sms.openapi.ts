@@ -36,11 +36,17 @@ export class AliyunSmsOpenAPI {
    * }
    * ```
    *
-   * Error with status 200 and response:
+   * Error response with status 200:
    * ```js
    * {
    *   Message: '触发分钟级流控Permits:1',
    *   RequestId: 'F9A1A492-53A7-57DF-8470-A787A068CEE8',
+   *   Code: 'isv.BUSINESS_LIMIT_CONTROL'
+   * }
+   *
+   * {
+   *   Message: '触发小时级流控Permits:5',
+   *   RequestId: '2E9DC9DA-F608-5D9D-9B93-AC5E3FB2B3DA',
    *   Code: 'isv.BUSINESS_LIMIT_CONTROL'
    * }
    *
@@ -54,6 +60,24 @@ export class AliyunSmsOpenAPI {
    *   Message: '该账号下找不到对应签名',
    *   RequestId: '565DCD41-CB82-54E0-A761-08497FDF6E8F',
    *   Code: 'isv.SMS_SIGNATURE_ILLEGAL'
+   * }
+   *
+   * {
+   *   Message: '签名和模板类型不一致',
+   *   RequestId: 'BB30DB9A-B73F-535E-A848-38E9E5415352',
+   *   Code: 'isv.SMS_SIGNATURE_SCENE_ILLEGAL'
+   * }
+   * ```
+   *
+   * Error response with status 4xx/5xx:
+   * ```js
+   * // 404
+   * {
+   *   Code: 'InvalidAccessKeyId.NotFound',
+   *   HostId: 'dysmsapi.aliyuncs.com',
+   *   Message: 'Specified access key is not found.',
+   *   Recommend: 'https://api.aliyun.com/troubleshoot?q=InvalidAccessKeyId.NotFound&product=Dysmsapi',
+   *   RequestId: 'E87A2536-9C7D-562F-B782-C2BB8C5D321A',
    * }
    * ```
    *

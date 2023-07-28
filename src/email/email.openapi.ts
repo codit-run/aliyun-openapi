@@ -39,7 +39,7 @@ export class AliyunEmailOpenAPI {
    * }
    * ```
    *
-   * Error with status 400 and payload:
+   * Error with status 400:
    * ```js
    * {
    *   RequestId: 'DABF50BB-AC3D-505C-9522-0187D739D180',
