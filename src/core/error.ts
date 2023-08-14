@@ -1,6 +1,6 @@
 /**
  * Common error codes:
- * https://developers.weixin.qq.com/doc/oplatform/Return_codes/Return_code_descriptions_new.html
+ * https://help.aliyun.com/document_detail/101346.html
  */
 
 import { AliyunErrorResponse } from './types.js'

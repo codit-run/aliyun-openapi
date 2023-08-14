@@ -62,10 +62,10 @@ export class AliyunEmailOpenAPI {
       ReplyToAddress: boolean
       ClickTrace: 0 | 1
       FromAlias: string
-      TagName: string,
+      TagName: string
       ReplyAddress: string
       ReplyAddressAlias: string
-    }>
+    }>,
   ): Promise<AliyunSuccessResponse> {
     if (Array.isArray(to)) to = to.join(',')
     return await this.#client.send('SingleSendMail', {

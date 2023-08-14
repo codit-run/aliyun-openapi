@@ -96,7 +96,7 @@ export class AliyunSmsOpenAPI {
     options?: Partial<{
       SmsUpExtendCode: string
       OutId: string
-    }>
+    }>,
   ): Promise<AliyunSuccessResponse> {
     if (Array.isArray(number)) number = number.join(',')
     return await this.#client.send('SendSms', {
@@ -142,7 +142,7 @@ export class AliyunSmsOpenAPI {
     options?: Partial<{
       SmsUpExtendCodeJson: string
       OutId: string
-    }>
+    }>,
   ): Promise<AliyunSuccessResponse> {
     return await this.#client.send('SendBatchSms', {
       PhoneNumberJson: JSON.stringify(numbers),

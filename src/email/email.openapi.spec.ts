@@ -107,7 +107,7 @@ test('#querySendStatistics', async () => {
   })
 
   const response = await openapi.querySendStatistics({ Length: 3 })
-  expect(Array.isArray((response.data as any).mailDetail)).toBe(true)
+  expect(Array.isArray((response.data as { mailDetail: object[] }).mailDetail)).toBe(true)
   expect(spy).toHaveBeenCalledTimes(1)
   spy.mockRestore()
 })

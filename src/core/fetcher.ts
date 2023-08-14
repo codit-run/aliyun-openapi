@@ -25,7 +25,7 @@
  * ```
  *
  * References:
- * - [OpenAPI Request/Response](https://help.aliyun.com/document_detail/315526.html#section-9x3-wo3-8l9)
+ * - [OpenAPI Request/Response](https://help.aliyun.com/zh/sdk/product-overview/rpc-mechanism#section-9x3-wo3-8l9)
  * - [OpenAPI Troubleshoot](https://next.api.aliyun.com/troubleshoot)
  *
  * As per spec "Content-Type" will be set to "application/x-www-form-urlencoded"

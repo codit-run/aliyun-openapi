@@ -3,11 +3,11 @@
  *
  * References:
  * - [OpenAPI](https://next.api.aliyun.com/home)
- * - [Help](https://help.aliyun.com/document_detail/311601.html)
+ * - [Help](https://help.aliyun.com/zh/sdk/alibaba-cloud-api-overview)
  * - [Sign util](https://www.npmjs.com/package/@alicloud/openapi-util)
  *
  * For internal access see:
- * - [VPC Endpoint](https://help.aliyun.com/document_detail/311601.html#sectiondiv-a2f-wsf-q14)
+ * - [VPC Endpoint](https://help.aliyun.com/zh/sdk/alibaba-cloud-api-overview#sectiondiv-a2f-wsf-q14)
  *
  * The `options` example:
  * ```js
@@ -62,7 +62,7 @@ export class AliyunClient {
   /**
    * OpenAPI parameters consist of common parameters and action specific parameters.
    *
-   * Common parameters: https://help.aliyun.com/document_detail/315526.html#sectiondiv-qq5-utu-r7a
+   * Common parameters: https://help.aliyun.com/zh/sdk/product-overview/rpc-mechanism#sectiondiv-qq5-utu-r7a
    *
    * @param action The action name.
    * @param options The action specific parameters.
@@ -87,7 +87,7 @@ export class AliyunClient {
  * Signs parameters.
  *
  * References:
- * - [OpenAPI signature](https://help.aliyun.com/document_detail/315526.html#section-wml-y32-4a2)
+ * - [OpenAPI signature](https://help.aliyun.com/zh/sdk/product-overview/rpc-mechanism#section-wml-y32-4a2)
  * - [URLSearchParams no-escape & hex-table](https://github.com/nodejs/node/blob/v20.4.0/lib/internal/url.js#L1225)
  * - [DirectMail signature example](https://help.aliyun.com/document_detail/29442.html)
  *
